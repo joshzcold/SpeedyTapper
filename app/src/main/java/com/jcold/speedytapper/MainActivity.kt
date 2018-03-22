@@ -16,8 +16,9 @@ class MainActivity : AppCompatActivity() {
     var remaining_time: TextView? = null
     var countdown_text: TextView? = null
     var timerIsStarted = false
-    var scoreText: TextView? = null
+    var highscoreText: TextView? = null
     var highScore = 0
+    var currentscoreText: TextView? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +31,8 @@ class MainActivity : AppCompatActivity() {
     private fun bindViews() {
         remaining_time = findViewById(R.id.countdown_timer)
         countdown_text = findViewById(R.id.countdown_timer)
-        scoreText = findViewById(R.id.ending_score)
+        highscoreText = findViewById(R.id.high_score)
+        currentscoreText = findViewById(R.id.current_score)
 
 
     }
@@ -38,21 +40,28 @@ class MainActivity : AppCompatActivity() {
     private fun highScoreSetter(){
         if (highScore < counter){
            highScore = counter
-                   scoreText?.setText("High Score: "+blankString+counter)
+                   highscoreText?.setText("High Score: "+blankString+counter)
         }
     }
 
+    private fun currentScoreSetter(){
+        currentscoreText?.setText("Score: "+counter)
+    }
+
     private fun gameTimerStart(){
-        startTimer = object : CountDownTimer(5000, 1000) {
+        startTimer = object : CountDownTimer(5000, 1) {
             override fun onTick(millisUntilFinished: Long) {
                 timerIsStarted = true
-                countdown_text?.setText("Seconds: "+ millisUntilFinished / 1000)
+                var seconds = (millisUntilFinished / 1000) %60
+                var milli = (millisUntilFinished % 1000)
+                countdown_text?.setText("Seconds: "+ String.format("%d.%02d", seconds, milli))
             }
 
             override fun onFinish() {
                 timerIsStarted = false
                 countdown_text?.setText("Seconds: 5")
                 highScoreSetter()
+                currentScoreSetter()
                 counter =0
                 number_increasing.setText(blankString+counter)
             }
@@ -64,6 +73,7 @@ class MainActivity : AppCompatActivity() {
         button_reset_timer.setOnClickListener{
 
             highScoreSetter()
+            currentScoreSetter()
             counter =0
             number_increasing.setText(blankString+counter)
             startTimer?.cancel()

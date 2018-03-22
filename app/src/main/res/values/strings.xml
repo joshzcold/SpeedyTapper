@@ -2,6 +2,8 @@
     <string name="app_name">SpeedyTapper</string>
     <string name="button_text">Tap Me</string>
     <string name="timer_blank">Seconds: 5</string>
-    <string name="reset_text">Reset</string>
+    <string name="reset_text">Reset Timer</string>
     <string name="ending_score">High Score:</string>
+    <string name="current_score">Score:</string>
+    <string name="blank_counter">0</string>
 </resources>
