@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun gameTimerStart(){
-        startTimer = object : CountDownTimer(6000, 1000) {
+        startTimer = object : CountDownTimer(5000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 timerIsStarted = true
                 countdown_text?.setText("Seconds: "+ millisUntilFinished / 1000)
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 timerIsStarted = false
-                countdown_text?.setText("Seconds: 0")
+                countdown_text?.setText("Seconds: 5")
                 highScoreSetter()
                 counter =0
                 number_increasing.setText(blankString+counter)
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
             counter =0
             number_increasing.setText(blankString+counter)
             startTimer?.cancel()
-            countdown_text?.setText("Seconds: 0")
+            countdown_text?.setText("Seconds: 5")
             timerIsStarted = false
         }
 
