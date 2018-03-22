@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
     var countdown_text: TextView? = null
     var timerIsStarted = false
     var scoreText: TextView? = null
+    var highScore = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +35,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun highScoreSetter(){
+        if (highScore < counter){
+           highScore = counter
+                   scoreText?.setText("High Score: "+blankString+counter)
+        }
+    }
+
     private fun gameTimerStart(){
         startTimer = object : CountDownTimer(6000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
@@ -43,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             override fun onFinish() {
                 timerIsStarted = false
                 countdown_text?.setText("Seconds: 0")
-                scoreText?.setText("Score: "+blankString+counter)
+                highScoreSetter()
                 counter =0
                 number_increasing.setText(blankString+counter)
             }
@@ -54,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
         button_reset_timer.setOnClickListener{
 
-            scoreText?.setText("Score: "+blankString+counter)
+            highScoreSetter()
             counter =0
             number_increasing.setText(blankString+counter)
             startTimer?.cancel()

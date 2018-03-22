@@ -4,5 +4,5 @@
     <string name="starting_number">Seconds: 0</string>
     <string name="timer_blank">Seconds: 0</string>
     <string name="reset_text">Reset</string>
-    <string name="ending_score">Score:</string>
+    <string name="ending_score">High Score:</string>
 </resources>
