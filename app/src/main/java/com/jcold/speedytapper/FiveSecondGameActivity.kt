@@ -5,6 +5,7 @@ import android.os.CountDownTimer
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
 import kotlinx.android.synthetic.main.fivesecondgame_activity.*
+import org.jetbrains.anko.toast
 
 
 class FiveSecondGameActivity : AppCompatActivity() {
@@ -43,6 +44,7 @@ class FiveSecondGameActivity : AppCompatActivity() {
         if (leaderboards.getFiveSecondHighScore() < counter){
             highscoreText?.setText("High Score: "+blankString+counter)
             leaderboards.setFiveSecondHighScore(counter)
+            toast(blankString+counter + " is a new high score!")
         }
     }
 

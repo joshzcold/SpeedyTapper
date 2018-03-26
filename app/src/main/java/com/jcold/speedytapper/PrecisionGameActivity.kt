@@ -5,8 +5,9 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.TextView
 import kotlinx.android.synthetic.main.fivesecondgame_activity.*
+import org.jetbrains.anko.toast
 
-class PrecisionActivity : AppCompatActivity() {
+class PrecisionGameActivity : AppCompatActivity() {
 
 
     var counter = 0
@@ -24,6 +25,9 @@ class PrecisionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_precision)
         bindViews()
+        val leaderboards = LeaderBoards(this)
+        var highScore = leaderboards.getPrecisionHighScore()
+        highscoreText?.setText("High Score: "+blankString+highScore)
         gameFiveSeconds()
     }
 
@@ -37,9 +41,11 @@ class PrecisionActivity : AppCompatActivity() {
     }
 
     private fun highScoreSetter(){
-        if (highScore < counter){
-            highScore = counter
+        val leaderboards = LeaderBoards(this)
+        if (leaderboards.getPrecisionHighScore() < counter){
             highscoreText?.setText("High Score: "+blankString+counter)
+            leaderboards.setPrecisionHighScore(counter)
+            toast(blankString+counter + " is a new high score!")
         }
     }
 

@@ -20,7 +20,7 @@
 
             <!-- Figure out if new activities need and intent filter -->
         </activity>
-        <activity android:name=".PrecisionActivity"></activity>
+        <activity android:name=".PrecisionGameActivity"></activity>
     </application>
 
 </manifest>

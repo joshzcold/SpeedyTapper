@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun precisionGame(){
-        val intent = Intent(this, PrecisionActivity::class.java)
+        val intent = Intent(this, PrecisionGameActivity::class.java)
         startActivity(intent)
     }
 
