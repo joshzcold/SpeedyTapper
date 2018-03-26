@@ -17,8 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".FiveSecondGameActivity">
+
             <!-- Figure out if new activities need and intent filter -->
         </activity>
+        <activity android:name=".PrecisionActivity"></activity>
     </application>
 
 </manifest>

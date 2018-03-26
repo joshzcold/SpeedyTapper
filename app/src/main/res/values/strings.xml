@@ -7,4 +7,5 @@
     <string name="current_score">Score:</string>
     <string name="blank_counter">0</string>
     <string name="five_second_challenge">5 Second Challenge</string>
+    <string name="precision_challenge">Precision Challenge</string>
 </resources>
