@@ -16,7 +16,6 @@ class FiveSecondGameActivity : AppCompatActivity() {
     var countdown_text: TextView? = null
     var timerIsStarted = false
     var highscoreText: TextView? = null
-    var highScore = 0
     var currentscoreText: TextView? = null
 
 
@@ -24,6 +23,9 @@ class FiveSecondGameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fivesecondgame_activity)
         bindViews()
+        val leaderboards = LeaderBoards(this)
+        var highScore = leaderboards.getFiveSecondHighScore()
+        highscoreText?.setText("High Score: "+blankString+highScore)
         gameFiveSeconds()
     }
 
@@ -37,9 +39,10 @@ class FiveSecondGameActivity : AppCompatActivity() {
     }
 
     private fun highScoreSetter(){
-        if (highScore < counter){
-            highScore = counter
+        val leaderboards = LeaderBoards(this)
+        if (leaderboards.getFiveSecondHighScore() < counter){
             highscoreText?.setText("High Score: "+blankString+counter)
+            leaderboards.setFiveSecondHighScore(counter)
         }
     }
 
