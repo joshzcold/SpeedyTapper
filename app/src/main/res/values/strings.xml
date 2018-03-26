@@ -6,4 +6,5 @@
     <string name="ending_score">High Score:</string>
     <string name="current_score">Score:</string>
     <string name="blank_counter">0</string>
+    <string name="five_second_challenge">5 Second Challenge</string>
 </resources>
