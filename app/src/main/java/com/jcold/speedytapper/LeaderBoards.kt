@@ -4,7 +4,7 @@ import android.content.Context
 
 class LeaderBoards(context: Context){
     val PREFERENCE_NAME = "LeaderBoards_Preference"
-    val PREFERENCE_FIVE_HIGH_SCORE = "preference_high_score"
+    val PREFERENCE_FIVE_HIGH_SCORE = "preference_five_high_score"
 
     val preference = context.getSharedPreferences(PREFERENCE_NAME,Context.MODE_PRIVATE)
 
